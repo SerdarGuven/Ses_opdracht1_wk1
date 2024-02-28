@@ -1,0 +1,39 @@
+plugins {
+    id 'java'
+    id 'maven-publish' // toevoegen!
+}
+
+group = 'be.kuleuven'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = project.group.toString()
+            version = version
+            artifactId = 'GridJarfileproject'
+
+            from components.java
+        }
+    }
+    repositories {
+        maven {
+            url = "C:\\Users\\sguve\\Documents\\0_UNIEF\\Afmaken_week1"
+        }
+    }
+}
+
+
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}
